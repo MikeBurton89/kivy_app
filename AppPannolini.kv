@@ -1,0 +1,91 @@
+#:kivy 2.0.0
+#:import hex kivy.utils.get_color_from_hex
+<AppScreen>:
+    canvas:
+        Color: 
+            rgba: hex('#e65b25')
+        Rectangle:
+            size: root.width, root.height
+            pos: root.x, root.y   
+
+    FloatLayout:
+        pos: 0, 0
+        size : root.width, root.height  
+
+        Label:
+            text: 'App Pannolini'
+            text_size: self.size
+            halign: 'left'
+            color: 1,1,1,1
+            pos_hint: {'x': .1, 'y': .9}
+            font_size: 50
+
+        BottomButton:
+            pos_hint:{'x': .01, 'y': 0 }
+            size_hint: .33, .05
+            on_press: print('Button Pressed')
+
+             
+        BottomButton:
+            pos_hint:{'x': .34, 'y': 0 }
+            size_hint: .33, .05
+            on_press: print('Button Pressed')
+               
+        BottomButton:
+            pos_hint:{'x': .67, 'y': 0 }
+            size_hint: .33, .05
+            on_press: print('Button Pressed')
+            
+        GridLayout:
+            pos_hint: {'x': .25, 'y': .35}
+            size_hint: None, None
+            size: 200, 200
+            cols: 1
+
+            PoopButton:
+                on_touch_down: print('Button Pressed')
+            
+                
+                
+                
+        
+<PoopButton>:
+    canvas:
+        Color:
+            rgba: 0, 0, 0, 1
+        Rectangle:
+            pos: self.x, self.y
+            size: self.width, self.height
+        Color:
+            rgba: 1, 1, 1, 1
+        Rectangle:
+            pos: self.x + 5, self.y + 5
+            size: self.width - 10, self.height - 10
+        
+    Button:
+        pos: root.x , root.y 
+        size: root.width , root.height 
+        background_normal: str(False)
+        background_color: hex('#e65b25')
+
+    Image:
+        source: 'images/poop.png'
+        pos: root.x , root.y 
+        size: root.width , root.height 
+
+
+<BottomButton>:
+    canvas:
+        Color:
+            rgba: hex('#ffffff')
+        Rectangle:
+            pos: self.x, self.y
+            size: self.width, self.height
+        Color:
+            rgba: hex('#eb0c05')
+        Rectangle:
+            pos: self.x + 1, self.y + 1
+            size: self.width - 2, self.height - 2
+    Button:
+        background_normal: str(False)
+            
